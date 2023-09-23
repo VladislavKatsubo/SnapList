@@ -4,7 +4,7 @@ SnapList is a native iOS application developed using UIKit, following the MVVM+C
 ## Table of Contents
 - [Features](#features)
 - [Architecture](#architecture)
-- [Technologies and Libraries](#technologies_and_libraries)
+- [Technologies and Libraries](#technologies-and-libraries)
 - [Prerequisites](#prerequisites)
 
 ## Features
