@@ -113,8 +113,8 @@
 				0D6C2ADE2ABEDCB000D6BCD5 /* Flows */,
 				0D6C2AC72ABED77700D6BCD5 /* MainFlow */,
 				0D6C2AC92ABED77F00D6BCD5 /* Resources */,
-				0D6C2AC12ABED76C00D6BCD5 /* Info.plist */,
 				0D6C2ABE2ABED76C00D6BCD5 /* LaunchScreen.storyboard */,
+				0D6C2AC12ABED76C00D6BCD5 /* Info.plist */,
 			);
 			path = SnapList;
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				INFOPLIST_FILE = SnapList/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,7 +611,7 @@
 				INFOPLIST_FILE = SnapList/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
