@@ -66,7 +66,7 @@ private extension DeveloperListTableViewCellViewModel {
                 }
             case .failure(let failure):
                 if (failure as NSError).code == NSURLErrorCancelled {
-                    // MARK: Prevented the wrong image from being shown by cancelling the URLSessionDataTask
+                    // Prevented the wrong image from being shown by cancelling the URLSessionDataTask
                 } else {
                     print("Image fetching failure", failure)
                 }

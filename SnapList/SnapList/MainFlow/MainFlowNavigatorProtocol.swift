@@ -14,4 +14,3 @@ protocol MainFlowNavigatorProtocol: UINavigatorProtocol {
 class MainFlowNavigator: UINavigator, MainFlowNavigatorProtocol {
 
 }
-

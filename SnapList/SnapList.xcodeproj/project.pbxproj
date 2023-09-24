@@ -188,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				0D6C2AE42ABEDCEA00D6BCD5 /* Views */,
-				0D6C2AE52ABEDCED00D6BCD5 /* SnapshotViewController */,
 				0D6C2ACB2ABED89200D6BCD5 /* DeveloperListFactory.swift */,
 				0D6C2ACC2ABED89200D6BCD5 /* DeveloperListResources.swift */,
 				0D6C2ACE2ABED89200D6BCD5 /* DeveloperListViewModel.swift */,
@@ -204,13 +203,6 @@
 				0DEF10052ABEEFD300D9EF04 /* DeveloperListTableView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		0D6C2AE52ABEDCED00D6BCD5 /* SnapshotViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SnapshotViewController;
 			sourceTree = "<group>";
 		};
 		0DEF0FE32ABEE9F700D9EF04 /* DTOModels */ = {

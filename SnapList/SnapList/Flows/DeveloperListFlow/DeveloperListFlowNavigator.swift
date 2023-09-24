@@ -11,6 +11,6 @@ protocol DeveloperListFlowNavigatorProtocol: UINavigatorProtocol {
     
 }
 
-class DeveloperListFlowNavigator: UINavigator, DeveloperListFlowNavigatorProtocol {
+final class DeveloperListFlowNavigator: UINavigator, DeveloperListFlowNavigatorProtocol {
     
 }
