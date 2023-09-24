@@ -40,7 +40,7 @@ private extension DeveloperListViewController {
             case .onLoadMoreElements(let models):
                 self.tableView.addMoreElements(with: models)
             case .onSnap:
-                print("Snapped")
+                self.showCamera()
             }
         }
         viewModel?.launch()
@@ -71,5 +71,25 @@ private extension DeveloperListViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    func showCamera() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+
+        present(picker, animated: true)
+    }
+}
+
+extension DeveloperListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+
+        viewModel?.sendDataToServer(with: image)
+        
+        dismiss(animated: true)
     }
 }

@@ -37,6 +37,8 @@
 		0DEF100F2ABEF1B500D9EF04 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF100E2ABEF1B500D9EF04 /* AvatarImageView.swift */; };
 		0DEF10112ABEF3A400D9EF04 /* DeveloperListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10102ABEF3A400D9EF04 /* DeveloperListTableViewCellViewModel.swift */; };
 		0DEF10132ABEFB8800D9EF04 /* URLRequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10122ABEFB8800D9EF04 /* URLRequestConstructor.swift */; };
+		0DEF10152AC033B100D9EF04 /* Data+AppendMultipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10142AC033B100D9EF04 /* Data+AppendMultipart.swift */; };
+		0DEF10172AC03D3300D9EF04 /* PhotoUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10162AC03D3300D9EF04 /* PhotoUploadResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		0DEF100E2ABEF1B500D9EF04 /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		0DEF10102ABEF3A400D9EF04 /* DeveloperListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0DEF10122ABEFB8800D9EF04 /* URLRequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstructor.swift; sourceTree = "<group>"; };
+		0DEF10142AC033B100D9EF04 /* Data+AppendMultipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+AppendMultipart.swift"; sourceTree = "<group>"; };
+		0DEF10162AC03D3300D9EF04 /* PhotoUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				0DEF0FE62ABEEA9E00D9EF04 /* ListResponse.swift */,
+				0DEF10162AC03D3300D9EF04 /* PhotoUploadResponse.swift */,
 			);
 			path = DTOModels;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 		0DEF10022ABEED6800D9EF04 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0DEF10142AC033B100D9EF04 /* Data+AppendMultipart.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				0D6C2AE22ABEDCD000D6BCD5 /* DeveloperListFlowNavigator.swift in Sources */,
 				0DEF10042ABEEE3200D9EF04 /* ServiceFactory.swift in Sources */,
 				0DEF0FEE2ABEEC4500D9EF04 /* SLView.swift in Sources */,
+				0DEF10152AC033B100D9EF04 /* Data+AppendMultipart.swift in Sources */,
 				0D6C2AD02ABED89200D6BCD5 /* DeveloperListResources.swift in Sources */,
 				0DEF100C2ABEEFED00D9EF04 /* DeveloperListTableViewCell+Model.swift in Sources */,
 				0DEF0FF82ABEECCB00D9EF04 /* SLCircleImageView.swift in Sources */,
@@ -426,6 +433,7 @@
 				0D6C2AD22ABED89200D6BCD5 /* DeveloperListViewModel.swift in Sources */,
 				0DEF0FFE2ABEED2A00D9EF04 /* SLTableViewCell.swift in Sources */,
 				0DEF10012ABEED5100D9EF04 /* SLSectionCell.swift in Sources */,
+				0DEF10172AC03D3300D9EF04 /* PhotoUploadResponse.swift in Sources */,
 				0DEF10072ABEEFDD00D9EF04 /* DeveloperListTableView.swift in Sources */,
 				0D6C2AD72ABEDB4500D6BCD5 /* MainFlowNavigatorProtocol.swift in Sources */,
 				0DEF100F2ABEF1B500D9EF04 /* AvatarImageView.swift in Sources */,

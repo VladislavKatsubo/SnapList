@@ -48,5 +48,3 @@ final class ImageManager: ImageManagerProtocol {
         dataTask?.cancel()
     }
 }
-
-

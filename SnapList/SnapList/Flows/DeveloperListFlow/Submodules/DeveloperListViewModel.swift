@@ -6,7 +6,7 @@
 //
 
 
-import Foundation
+import UIKit
 
 protocol DeveloperListViewModelProtocol {
     var onStateChange: ((DeveloperListResources.State) -> Void)? { get set }
@@ -14,6 +14,7 @@ protocol DeveloperListViewModelProtocol {
     func launch()
     func loadMoreElements()
     func takeSnapshot(with: DeveloperListTableViewCell.Model)
+    func sendDataToServer(with image: UIImage)
 }
 
 final class DeveloperListViewModel: DeveloperListViewModelProtocol {
@@ -29,6 +30,7 @@ final class DeveloperListViewModel: DeveloperListViewModelProtocol {
     private var models: [DeveloperListTableViewCell.Model] = []
     private var currentPage = 0
     private var maxPage = 0
+    private var currentModel: DeveloperListTableViewCell.Model?
     
     // MARK: - Init
     init(
@@ -66,8 +68,39 @@ final class DeveloperListViewModel: DeveloperListViewModelProtocol {
         }
     }
     
-    func takeSnapshot(with: DeveloperListTableViewCell.Model) {
+    func takeSnapshot(with model: DeveloperListTableViewCell.Model) {
+        self.currentModel = model
+        
         onStateChange?(.onSnap)
+    }
+    
+    func sendDataToServer(with image: UIImage) {
+        var httpBody = Data()
+        let boundary = "Boundary-\(UUID().uuidString)"
+        
+        if let name = currentModel?.name,
+           let id = currentModel?.id,
+           let imageData = image.jpegData(compressionQuality: 0.8) {
+            httpBody.append(multipart: "name", value: name, boundary: boundary)
+            httpBody.append(multipart: "typeId", value: "\(id)", boundary: boundary)
+            httpBody.append(multipart: "photo", filename: "\(name).jpg", type: "image/jpeg", data: imageData, boundary: boundary)
+        }
+        
+        if let boundaryAsData = "--\(boundary)--\r\n".data(using: .utf8) {
+            httpBody.append(boundaryAsData) }
+        
+        let headers = ["Content-Type": "multipart/form-data; boundary=\(boundary)"]
+
+        guard let request = URLRequestConstructor.request(for: .photo, httpMethod: .post, httpBody: httpBody, headers: headers) else { return }
+        
+        networkManager.postData(request: request, body: httpBody, expecting: PhotoUploadResponse.self) { result in
+            switch result {
+            case .success(let data):
+                print("Successfully uploaded image: \(data)")
+            case .failure(let error):
+                print("Error uploading image: \(error)")
+            }
+        }?.resume()
     }
 }
 

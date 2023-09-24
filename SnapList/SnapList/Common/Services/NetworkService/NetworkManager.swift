@@ -10,6 +10,7 @@ import Foundation
 protocol NetworkManagerProtocol {
     func fetchData<T: Decodable>(url: URL?, expecting: T.Type, completion: @escaping (Result<T, Error>) -> Void)
     func fetchData(url: URL?, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask?
+    func postData<T: Decodable>(request: URLRequest, body: Data, expecting: T.Type, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionDataTask?
 }
 
 enum NetworkError: Error {
@@ -19,13 +20,13 @@ enum NetworkError: Error {
 }
 
 struct NetworkManager: NetworkManagerProtocol {
-
+    
     internal var session: URLSession
-
+    
     init(session: URLSession) {
         self.session = session
     }
-
+    
     func fetchData<T: Decodable>(
         url: URL?,
         expecting: T.Type,
@@ -35,7 +36,7 @@ struct NetworkManager: NetworkManagerProtocol {
             completion(.failure(NetworkError.invalidUrl))
             return
         }
-
+        
         let task = session.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 if let error = error {
@@ -45,7 +46,7 @@ struct NetworkManager: NetworkManagerProtocol {
                 }
                 return
             }
-
+            
             do {
                 let _ = try JSONSerialization.jsonObject(with: data, options: [])
             } catch {
@@ -53,7 +54,7 @@ struct NetworkManager: NetworkManagerProtocol {
                 completion(.failure(NetworkError.invalidJSONData))
                 return
             }
-
+            
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -68,13 +69,13 @@ struct NetworkManager: NetworkManagerProtocol {
         }
         task.resume()
     }
-
+    
     func fetchData(url: URL?, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionDataTask? {
         guard let url = url else {
             completion(.failure(NetworkError.invalidUrl))
             return nil
         }
-
+        
         let task = session.dataTask(with: url) { data, response, error in
             guard let data = data else {
                 if let error = error {
@@ -84,12 +85,38 @@ struct NetworkManager: NetworkManagerProtocol {
                 }
                 return
             }
-
+            
             completion(.success(data))
         }
         task.resume()
         return task
     }
+    
+    func postData<T: Decodable>(request: URLRequest, body: Data, expecting: T.Type, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionDataTask? {
+        var request = request
+        request.httpBody = body
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.invalidData))
+                return
+            }
+            
+            do {
+                let decodedResponse = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decodedResponse))
+            } catch let decodeError {
+                completion(.failure(decodeError))
+            }
+        }
+        
+        task.resume()
+        return task
+    }
+    
 }
-
-
