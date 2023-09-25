@@ -11,7 +11,7 @@ class SLSectionCell: UITableViewHeaderFooterView {
 
     static var reuseID: String { String(describing: self) }
 
-    // MARK: - Initi
+    // MARK: - Init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         didLoad()

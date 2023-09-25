@@ -58,11 +58,11 @@ private extension DeveloperListTableViewCellViewModel {
     func fetchImage(for url: URL?) -> URLSessionDataTask? {
         guard let url = url else { return nil }
 
-        let dataTask = imageManager?.fetchImageData(url: url, completion: { result in
+        let dataTask = imageManager?.fetchImageData(url: url, completion: { [weak self] result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    self.onImageData?(data)
+                    self?.onImageData?(data)
                 }
             case .failure(let failure):
                 if (failure as NSError).code == NSURLErrorCancelled {

@@ -43,6 +43,11 @@ final class DeveloperListTableViewCell: SLTableViewCell {
         setupItems()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.cleanup()
+    }
+    
     // MARK: - Configure
     func configure(with viewModel: DeveloperListTableViewCellViewModelProtocol) {
         self.viewModel = viewModel

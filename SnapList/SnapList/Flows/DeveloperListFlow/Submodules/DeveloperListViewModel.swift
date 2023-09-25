@@ -93,10 +93,13 @@ final class DeveloperListViewModel: DeveloperListViewModelProtocol {
 
         guard let request = URLRequestConstructor.request(for: .photo, httpMethod: .post, httpBody: httpBody, headers: headers) else { return }
         
-        networkManager.postData(request: request, body: httpBody, expecting: PhotoUploadResponse.self) { result in
+        networkManager.postData(request: request, body: httpBody, expecting: PhotoUploadResponse.self) { [weak self] result in
+            
             switch result {
             case .success(let data):
-                print("Successfully uploaded image: \(data)")
+                DispatchQueue.main.async {
+                    self?.onStateChange?(.onShowUploadCompletionAlert("Successfully uploaded image: \(data.id ?? "N/A")"))
+                }
             case .failure(let error):
                 print("Error uploading image: \(error)")
             }
@@ -113,7 +116,9 @@ private extension DeveloperListViewModel {
     func initialTableViewSetup() {
         let url = URLRequestConstructor.url(for: .photoType(page: .zero))
         
-        networkManager.fetchData(url: url, expecting: ListResponse.self) { result in
+        networkManager.fetchData(url: url, expecting: ListResponse.self) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let apiResponse):
                 self.convertApiResponseContentToTableViewCellModels(apiResponse)

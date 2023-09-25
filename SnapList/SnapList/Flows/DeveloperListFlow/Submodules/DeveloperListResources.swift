@@ -18,6 +18,7 @@ struct DeveloperListResources {
         case onInitialTableViewSetup([DeveloperListTableViewCell.Model], ImageManagerProtocol)
         case onLoadMoreElements([DeveloperListTableViewCell.Model])
         case onSnap
+        case onShowUploadCompletionAlert(String)
     }
 
     // MARK: - Constants
@@ -25,6 +26,8 @@ struct DeveloperListResources {
 
         enum UI {
             static let title = "SnapList"
+            static let alertTitle = "Success"
+            static let okActionTitle = "OK"
         }
 
         enum Mocks {

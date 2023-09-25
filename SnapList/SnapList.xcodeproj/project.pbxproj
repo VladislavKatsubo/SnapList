@@ -39,6 +39,7 @@
 		0DEF10132ABEFB8800D9EF04 /* URLRequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10122ABEFB8800D9EF04 /* URLRequestConstructor.swift */; };
 		0DEF10152AC033B100D9EF04 /* Data+AppendMultipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10142AC033B100D9EF04 /* Data+AppendMultipart.swift */; };
 		0DEF10172AC03D3300D9EF04 /* PhotoUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10162AC03D3300D9EF04 /* PhotoUploadResponse.swift */; };
+		0DEF101A2AC1355B00D9EF04 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEF10192AC1355B00D9EF04 /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		0DEF10122ABEFB8800D9EF04 /* URLRequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstructor.swift; sourceTree = "<group>"; };
 		0DEF10142AC033B100D9EF04 /* Data+AppendMultipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+AppendMultipart.swift"; sourceTree = "<group>"; };
 		0DEF10162AC03D3300D9EF04 /* PhotoUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadResponse.swift; sourceTree = "<group>"; };
+		0DEF10192AC1355B00D9EF04 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 		0D6C2AE42ABEDCEA00D6BCD5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0DEF10182AC1354700D9EF04 /* LoadingView */,
 				0DEF100D2ABEF04000D9EF04 /* AvatarImageView */,
 				0DEF10052ABEEFD300D9EF04 /* DeveloperListTableView */,
 			);
@@ -329,6 +332,14 @@
 			path = AvatarImageView;
 			sourceTree = "<group>";
 		};
+		0DEF10182AC1354700D9EF04 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				0DEF10192AC1355B00D9EF04 /* LoadingIndicatorView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +439,7 @@
 				0DEF10172AC03D3300D9EF04 /* PhotoUploadResponse.swift in Sources */,
 				0DEF10072ABEEFDD00D9EF04 /* DeveloperListTableView.swift in Sources */,
 				0D6C2AD72ABEDB4500D6BCD5 /* MainFlowNavigatorProtocol.swift in Sources */,
+				0DEF101A2AC1355B00D9EF04 /* LoadingIndicatorView.swift in Sources */,
 				0DEF100F2ABEF1B500D9EF04 /* AvatarImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
